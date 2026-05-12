@@ -1,0 +1,175 @@
+@import "tailwindcss";
+
+:root {
+  --color-sage: #C5DFA0;
+  --color-forest: #1E3A26;
+  --color-cream: #F8F5EC;
+  --color-offwhite: #EEEAE0;
+  --color-trueblack: #0A0A08;
+  --color-mutedblack: #2A2A26;
+  --color-glass: rgba(197, 223, 160, 0.12);
+  --color-gold: #B89A5E;
+}
+
+@theme inline {
+  --color-sage: var(--color-sage);
+  --color-forest: var(--color-forest);
+  --color-cream: var(--color-cream);
+  --color-offwhite: var(--color-offwhite);
+  --color-trueblack: var(--color-trueblack);
+  --color-mutedblack: var(--color-mutedblack);
+  --color-glass: var(--color-glass);
+  --color-gold: var(--color-gold);
+
+  --font-cormorant: var(--font-cormorant);
+  --font-syne: var(--font-syne);
+  --font-sans: var(--font-dmsans);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+@media (pointer: fine) {
+  *, *::before, *::after {
+    cursor: none !important;
+  }
+}
+
+body {
+  background-color: var(--color-cream);
+  color: var(--color-trueblack);
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Global Noise Grain Overlay */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 9999;
+  pointer-events: none;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+  opacity: 0.03;
+}
+
+/* Global Selection Style */
+::selection {
+  background: var(--color-sage);
+  color: var(--color-forest);
+}
+
+/* Global Scroll Reveal Animation */
+@keyframes fadeRise {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.reveal {
+  opacity: 0;
+  transform: translateY(30px);
+}
+
+.reveal.in-view {
+  animation: fadeRise 0.8s ease-out forwards;
+}
+
+.reveal[data-delay="0"] { animation-delay: 0ms; }
+.reveal[data-delay="1"] { animation-delay: 120ms; }
+.reveal[data-delay="2"] { animation-delay: 240ms; }
+.reveal[data-delay="3"] { animation-delay: 360ms; }
+.reveal[data-delay="4"] { animation-delay: 480ms; }
+.reveal[data-delay="5"] { animation-delay: 600ms; }
+
+/* Blob Morphing Animations */
+@keyframes blob-morph-1 {
+  0%, 100% { border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%; }
+  50% { border-radius: 30% 60% 70% 40% / 50% 60% 30% 60%; }
+}
+
+@keyframes blob-morph-2 {
+  0%, 100% { border-radius: 40% 60% 70% 30% / 40% 50% 60% 50%; }
+  50% { border-radius: 70% 30% 50% 50% / 30% 30% 70% 70%; }
+}
+
+/* Scroll Line Animation */
+@keyframes scroll-line {
+  0% { transform: scaleY(0); transform-origin: top; }
+  50% { transform: scaleY(1); transform-origin: top; }
+  50.1% { transform: scaleY(1); transform-origin: bottom; }
+  100% { transform: scaleY(0); transform-origin: bottom; }
+}
+
+/* Editorial Drop Cap */
+.drop-cap::first-letter {
+  font-family: var(--font-cormorant);
+  font-weight: 700;
+  font-size: 52px;
+  color: var(--color-forest);
+  float: left;
+  line-height: 0.75;
+  margin-right: 8px;
+}
+
+/* Marquee Animation */
+@keyframes marquee {
+  0% { transform: translateX(0%); }
+  100% { transform: translateX(-50%); }
+}
+
+.animate-marquee {
+  display: flex;
+  width: max-content;
+  animation: marquee 25s linear infinite;
+}
+
+.animate-marquee:hover {
+  animation-play-state: paused;
+}
+
+/* Form Shake Validation */
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  25% { transform: translateX(-4px); }
+  75% { transform: translateX(4px); }
+}
+
+.animate-shake {
+  animation: shake 0.3s ease-in-out;
+}
+
+/* AI Chatbot Pulses */
+@keyframes pulse-glow {
+  0% { box-shadow: 0 0 0 0 rgba(197, 223, 160, 0.4); }
+  100% { box-shadow: 0 0 0 16px rgba(197, 223, 160, 0); }
+}
+
+@keyframes pulse-ring {
+  0% { transform: scale(1); opacity: 1; }
+  100% { transform: scale(3); opacity: 0; }
+}
+
+/* Global Polish Rules */
+a {
+  cursor: none;
+  text-decoration: none;
+}
+
+img, svg {
+  user-select: none;
+  -webkit-user-drag: none;
+}
+
+input, textarea {
+  outline: none;
+}
