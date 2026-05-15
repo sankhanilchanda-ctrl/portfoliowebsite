@@ -117,7 +117,11 @@ export default function Hero() {
               </button>
             </MagneticButton>
             <MagneticButton>
-              <a href="#" className="interactive group flex flex-col items-start gap-1">
+              <a 
+                href="/Sankhanil Chanda Cv.docx" 
+                download="Sankhanil_Chanda_Cv.docx"
+                className="interactive group flex flex-col items-start gap-1"
+              >
                 <span className="font-syne text-[11px] text-forest tracking-[0.1em] flex items-center gap-2">
                   DOWNLOAD CV
                   <span className="transition-transform duration-300 group-hover:translate-x-[4px]">→</span>
