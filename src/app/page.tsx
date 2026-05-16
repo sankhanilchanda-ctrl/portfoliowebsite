@@ -11,6 +11,7 @@ import Journey from "@/components/Journey";
 import Services from "@/components/Services";
 import Hobbies from "@/components/Hobbies";
 import Contact from "@/components/Contact";
+import Projects from "@/components/Projects";
 import Footer from "@/components/Footer";
 import Chatbot from "@/components/Chatbot";
 
@@ -33,6 +34,7 @@ export default function Home() {
           <Hero />
           <About />
           <Journey />
+          <Projects />
           <Services />
           <Hobbies />
           <Contact />
