@@ -112,9 +112,9 @@ export default function Hero() {
             className="flex flex-wrap items-center gap-8"
           >
             <MagneticButton>
-              <button className="interactive bg-forest text-cream font-syne text-[11px] tracking-[0.15em] px-[40px] py-[16px] rounded-none transition-all duration-300 hover:bg-sage hover:text-forest hover:-translate-y-[2px] hover:shadow-[0_8px_32px_rgba(30,58,38,0.2)]">
+              <a href="#projects" className="interactive bg-forest text-cream font-syne text-[11px] tracking-[0.15em] px-[40px] py-[16px] rounded-none transition-all duration-300 hover:bg-sage hover:text-forest hover:-translate-y-[2px] hover:shadow-[0_8px_32px_rgba(30,58,38,0.2)]">
                 VIEW PROJECTS
-              </button>
+              </a>
             </MagneticButton>
             <MagneticButton>
               <a 
